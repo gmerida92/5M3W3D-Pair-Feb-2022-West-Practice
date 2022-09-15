@@ -2,7 +2,7 @@ import articles from '../data/data.json';
 
 const LOAD_ARTICLES = 'article/loadArticles';
 
-export const loadArticles = () => {
+export const loadArticles = (articles) => {
   return {
     type: LOAD_ARTICLES,
     articles

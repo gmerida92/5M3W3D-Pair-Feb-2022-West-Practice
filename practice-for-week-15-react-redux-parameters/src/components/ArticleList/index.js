@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import SingleArticle from '../SingleArticle';
 import { loadArticles } from '../../store/articleReducer';
+import data from '../../data/data.json'
 
 const ArticleList = () => {
   const dispatch = useDispatch();
   const articles = useSelector(state=>state.articleState.entries);
 
   useEffect(() => {
-    dispatch(loadArticles());
+    dispatch(loadArticles(data));
   }, [dispatch]);
 
   return (
@@ -23,7 +24,7 @@ const ArticleList = () => {
 
       <Switch>
         <Route path='/article/:id'>
-          <SingleArticle articles={articles}/>
+          <SingleArticle />
         </Route>
       </Switch>
     </div>
