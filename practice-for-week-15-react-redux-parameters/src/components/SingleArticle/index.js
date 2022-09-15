@@ -1,9 +1,15 @@
 import './SingleArticle.css';
+import { useParams } from 'react-router-dom'
 
-const SingleArticle = () => {
+const SingleArticle = ({ articles }) => {
+  const params = useParams();
+  const { id } = params;
+  console.log(articles)
+  const selectedArticle = articles.find (article => article.id === id);
+
   return (
     <div className='singleArticle'>
-      <h1>Why Am I At Home</h1>
+      <h1>{selectedArticle.title}</h1>
       <img
         src='https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Frobcain%2Ffiles%2F2017%2F10%2FKevin-Home-Alone.jpg'
         alt='home'
