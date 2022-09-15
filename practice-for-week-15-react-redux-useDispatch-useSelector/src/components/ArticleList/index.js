@@ -1,7 +1,15 @@
 import { Route, Switch } from 'react-router-dom';
 import SingleArticle from '../SingleArticle';
-
+import {useDispatch} from 'react-redux'
+import {loadArticles} from '../../store/articleReducer'
+import { useEffect } from 'react';
 const ArticleList = () => {
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(loadArticles())
+  },[])
+
   return (
     <div>
       <h1>Article List</h1>
